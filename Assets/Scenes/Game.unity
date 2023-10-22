@@ -430,7 +430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839347115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.028, y: 0.792, z: 2.495}
+  m_LocalPosition: {x: -0.028, y: 1.06, z: 2.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2050637929}
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _block: {fileID: -4535886627458668988, guid: 9d521853c2a74704e8eb07f33387480d, type: 3}
-  _countOfTowers: 12
+  _countOfTowers: 10
   _startSpawnPoint: {fileID: 1723879787}
 --- !u!1 &1510112052
 GameObject:
@@ -905,7 +905,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2050637929}
   - component: {fileID: 2050637930}
-  - component: {fileID: 2050637931}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -939,24 +938,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2050637928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a264bbfa58082f4199f0ea6cf00b8ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 44d13ec8c75a242438e2d2455a1f3b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 7211027208559435528, guid: 64ecddc00cc8ec545a09eab30f633ffb, type: 3}
   _bulletSpawnPoint: {fileID: 839347116}
---- !u!114 &2050637931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050637928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996c77ef3e9a5f54c8378ce51e8a50eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 20
 --- !u!1 &1301417760393582133
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +954,7 @@ GameObject:
   - component: {fileID: 6519070671313947184}
   - component: {fileID: 3236166618679632680}
   - component: {fileID: 9194509242067557646}
+  - component: {fileID: 1301417760393582135}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -975,6 +962,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1301417760393582135
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301417760393582133}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1149973307703454695, guid: 02cf2a68279a8014ebd29e625dde2752, type: 3}
 --- !u!33 &3236166618679632680
 MeshFilter:
   m_ObjectHideFlags: 0
