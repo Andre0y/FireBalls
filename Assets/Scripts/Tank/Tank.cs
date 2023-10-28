@@ -17,6 +17,6 @@ public class Tank : MonoBehaviour
 
     public void BulletSpawning()
     {
-        Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.identity, transform);
+        Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.identity);
     }
 }
