@@ -22,5 +22,10 @@ public class Bullet : MonoBehaviour
             block.BulletHit?.Invoke(block);
             Destroy(gameObject);
         }
+
+        if (other.TryGetComponent(out Wall wall))
+        {
+            Destroy(gameObject);
+        }
     }
 }
