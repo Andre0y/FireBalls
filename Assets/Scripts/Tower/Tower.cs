@@ -4,9 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(TowerBuilder))]
 public class Tower : MonoBehaviour
 {
+    [SerializeField] private float _rotateAngle;
+    
     private TowerBuilder _towerBuilder;
     private List<Block> _blocks;
-
+    
     private Vector3 _rotateVector;
 
     private void Start()
@@ -25,7 +27,7 @@ public class Tower : MonoBehaviour
 
     private void Update()
     {
-        RotateBlocks(_rotateVector);
+        RotateBlocks(_rotateVector, _rotateAngle);
     }
 
     private void OnBulletHit(Block hittedBlock)
@@ -43,11 +45,11 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private void RotateBlocks(Vector3 rotateVector)
+    private void RotateBlocks(Vector3 rotateVector, float rotateAngle)
     {
         foreach (Block block in _blocks)
         {
-            block.transform.Rotate(rotateVector, 0.3f);
+            block.transform.Rotate(rotateVector, rotateAngle);
         }
     }
 }
