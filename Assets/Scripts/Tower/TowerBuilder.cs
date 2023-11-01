@@ -3,11 +3,21 @@ using UnityEngine;
 
 public class TowerBuilder : MonoBehaviour
 {
+    [SerializeField] private Color[] _colors;
+    
     [SerializeField] private Block _block;
-    [SerializeField] private int _countOfTowers;
     [SerializeField] private Transform _startSpawnPoint;
+    [SerializeField] private ushort _maxBlocksCount;
+    [SerializeField] private ushort _minBlocksCount;
+
+    private int _countOfBlocks;
 
     private Vector3 _spawnPosition;
+
+    private void Awake()
+    {
+        _countOfBlocks = Random.Range(_minBlocksCount, _maxBlocksCount);
+    }
 
     private void Start()
     {
@@ -18,9 +28,11 @@ public class TowerBuilder : MonoBehaviour
     {
         List<Block> blocks = new List<Block>();
 
-        for (int i = 0; i < _countOfTowers; i++)
+        for (int i = 0; i < _countOfBlocks; i++)
         {
             Block newBlock = BuildBlock();
+            newBlock.GetComponent<MeshRenderer>().material.color = _colors[Random.Range(0, _colors.Length)];
+            
             blocks.Add(newBlock);
             _startSpawnPoint = newBlock.transform;
         }
@@ -33,7 +45,7 @@ public class TowerBuilder : MonoBehaviour
         _spawnPosition.y += _block.transform.localScale.y / 2f + _startSpawnPoint.transform.localScale.y / 2f;        
 
         Block newBlock = Instantiate(_block, _spawnPosition, Quaternion.identity, transform);
-
+        
         return newBlock;
     }
 }

@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class WallRotating : MonoBehaviour
 {
-    [SerializeField] private float _rotateAngle;
-
-    private Vector3 _rotateVector = new Vector3(0, 1, 0);
-
-    void Update()
+    [SerializeField] private float _rotationTime;
+    
+    void Start()
     {
-        RotateWall(_rotateVector, _rotateAngle);  
+        RotateWall(_rotationTime);  
     }
 
-    private void RotateWall(Vector3 rotateVector, float rotateAngle)
+    private void RotateWall(float rotationTime)
     {
-        transform.Rotate(rotateVector,rotateAngle);
+        transform.DORotate(new Vector3(0, 360, 0), rotationTime, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Yoyo);
     }
 }

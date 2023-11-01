@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 20
+  _explosionRadius: 50
+  _explosionForce: 50
 --- !u!64 &4957483079982247988
 MeshCollider:
   m_ObjectHideFlags: 0
