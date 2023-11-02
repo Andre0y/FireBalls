@@ -32,7 +32,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 explosionVector = new Vector3(transform.position.x, transform.position.y, transform.position.z + Vector3.forward.z);    
+        Vector3 explosionVector = new Vector3(transform.position.x, transform.position.y, transform.position.z + Vector3.forward.z);
+        
+        float normalBulletDeviatonMultiplier = 1.2f;
+        float extraBulletDeviationMultiplier = 1.6f;
+        float borderBetweenNormalAndExtraPosition = 3.7f;
         
         if (other.TryGetComponent(out Block block))
         {
@@ -43,11 +47,11 @@ public class Bullet : MonoBehaviour
         if (other.TryGetComponent(out Wall wall))
         {
             _rigidbody.AddExplosionForce(_explosionForce, explosionVector, _explosionRadius);
-            _moveDirection = Vector3.back + Vector3.up * 1.2f;
+            _moveDirection = Vector3.back + Vector3.up * normalBulletDeviatonMultiplier;
 
-            if (transform.position.z >= 3.7f)
+            if (transform.position.z >= borderBetweenNormalAndExtraPosition)
             {
-                _moveDirection = Vector3.back + Vector3.up / 1.6f;
+                _moveDirection = Vector3.back + Vector3.up / extraBulletDeviationMultiplier;
             }
         }
     }
